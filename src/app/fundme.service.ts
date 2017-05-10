@@ -19,4 +19,8 @@ export class FundmeService {
     this.projects.push(newfundme);
   }
 
+  getProjectById(projectId) {
+    return this.database.object('projects/' + projectId);
+  }
+
 }

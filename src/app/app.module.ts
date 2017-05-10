@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
 import { AddFundMeComponent } from './add-fund-me/add-fund-me.component';
 import { FundmeService } from './fundme.service';
+import { FundmeDetailComponent } from './fundme-detail/fundme-detail.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -25,7 +26,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    AddFundMeComponent
+    AddFundMeComponent,
+    FundmeDetailComponent
   ],
   imports: [
     BrowserModule,

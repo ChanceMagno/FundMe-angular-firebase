@@ -1,3 +1,5 @@
-<div *ngFor="let project of projects | async">
-  <h3>{{project.name}}</h3>
+<div *ngFor="let project of projects | async" (click)="goToProjectDetailPage(project)" class="panel panel-default">
+  <div class="panel-body">
+    <h3>{{project.name}}</h3>
+  </div>
 </div>
