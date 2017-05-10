@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
 import { AddFundMeComponent } from './add-fund-me/add-fund-me.component';
+import { FundmeService } from './fundme.service';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
