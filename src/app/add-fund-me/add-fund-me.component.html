@@ -1,0 +1,75 @@
+    <div class="row">
+    <form class="col s12" [formGroup]="projectForm">
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea id="name" class="materialize-textarea" formControlName="name"></textarea>
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <textarea id="peopleInvolved" class="materialize-textarea" formControlName="peopleInvolved"></textarea>
+          <label for="peopleInvolved">Founder(s)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 black-text">
+          <select materialize="material_select" [materializeSelectOptions]="categories" formControlName="category">
+              <option value="" disabled selected>Choose your option</option>
+              <option *ngFor="let name of categories" [value]="name">{{name}}</option>
+          </select>
+          <label>Category</label>
+        </div>
+        <div class="input-field col s6">
+          <select materialize="material_select" [materializeSelectOptions]="type" formControlName="type">
+              <option value="" disabled selected>Choose your option</option>
+          </select>
+          <label>Type</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea rows="25" id="description" type="text" class="validate materialize-textarea" formControlName="description" data-length="500"></textarea>
+          <label for="description">Description</label>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="moneyDescription" type="text" class="validate materialize-textarea" formControlName="moneyDescription"></textarea>
+          <label for="moneyDescription">What the Money is for</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="goalAmount" type="number" class="validate" formControlName="goalAmount">
+          <label for="goalAmount">Goal Amount</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="location" type="text" class="validate" formControlName="location">
+          <label for="location">Invention Location</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="rewards" type="text" class="validate" formControlName="rewards">
+          <label for="rewards">Rewards</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="endDate" type="text" class="validate" formControlName="endDate">
+          <label for="endDate">End Date</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="image" type="url" class="validate" formControlName="image">
+          <label for="image">Image URL</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="videoUrl" type="text" class="validate" formControlName="videoUrl">
+          <label for="videoUrl">Video Url</label>
+        </div>
+      </div>
+      <div class="row">
+        <button class="btn waves-effect waves-light">Add Room</button>
+      </div>
+    </form>
+  </div>
