@@ -23,4 +23,8 @@ export class FundmeService {
     return this.database.object('projects/' + projectId);
   }
 
+  getProjectEditById(projectId) {
+    return this.database.object('projects/edit/' + projectId);
+  }
+
 }

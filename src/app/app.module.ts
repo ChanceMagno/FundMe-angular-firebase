@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 
+
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -14,6 +15,7 @@ import { routing } from './app.routing';
 import { AddFundMeComponent } from './add-fund-me/add-fund-me.component';
 import { FundmeService } from './fundme.service';
 import { FundmeDetailComponent } from './fundme-detail/fundme-detail.component';
+import { EditFundMeComponent } from './edit-fund-me/edit-fund-me.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -27,7 +29,8 @@ export const firebaseConfig = {
     AppComponent,
     HomeComponent,
     AddFundMeComponent,
-    FundmeDetailComponent
+    FundmeDetailComponent,
+    EditFundMeComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ export const firebaseConfig = {
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

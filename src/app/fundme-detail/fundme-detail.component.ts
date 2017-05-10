@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Fundme } from '../fundme.model';
 import { FundmeService } from '../fundme.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fundme-detail',
@@ -17,7 +18,8 @@ export class FundmeDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private fundmeService: FundmeService
+    private fundmeService: FundmeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,6 +27,10 @@ export class FundmeDetailComponent implements OnInit {
       this.projectId = urlParameters['id'];
     });
     this.projectToDisplay = this.fundmeService.getProjectById(this.projectId);
+  }
+
+  editProject(){
+    this.router.navigate(['projects/edit/',this.projectId]);
   }
 
 }

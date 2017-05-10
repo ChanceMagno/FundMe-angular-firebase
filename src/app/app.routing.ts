@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddFundMeComponent } from './add-fund-me/add-fund-me.component';
 import { FundmeDetailComponent } from './fundme-detail/fundme-detail.component';
+import { EditFundMeComponent } from './edit-fund-me/edit-fund-me.component';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ const appRoutes: Routes = [
   {
     path:'projects/:id',
     component: FundmeDetailComponent
+  },
+  {
+    path:'projects/edit/:id',
+    component: EditFundMeComponent
   }
 ];
 
