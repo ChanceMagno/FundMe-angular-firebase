@@ -33,4 +33,6 @@ export class FundmeDetailComponent implements OnInit {
     this.router.navigate(['projects/edit/',this.projectId]);
   }
 
+
+
 }

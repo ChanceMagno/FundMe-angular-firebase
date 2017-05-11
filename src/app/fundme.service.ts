@@ -7,6 +7,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class FundmeService {
   projects: FirebaseListObservable<any[]>;
 
+
+
   constructor(private database: AngularFireDatabase) {
     this.projects = database.list('projects');
   }
@@ -20,6 +22,18 @@ export class FundmeService {
   }
 
   getProjectById(projectId) {
+
     return this.database.object('projects/' + projectId);
   }
+
+
+  // getCurrentFundMe() {
+  //   return currentFundMe;
+  // }
+
+//   updateProject(localUpdatedProject){
+//   var projectEntryInFirebase = this.getProjectById(localUpdatedProject.$key);
+//   projectEntryInFirebase.update({title: localUpdatedProject.title,
+//                               artist: localUpdatedProject.artist,
+//                               description: localUpdatedProject.description});
 }

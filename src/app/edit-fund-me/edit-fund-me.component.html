@@ -1,79 +1,80 @@
 <div class="row">
   <h1>{{projectId}}</h1>
-  <h1>{{projectToDisplay.name}}</h1>
+  <h1>{{projectToDisplay?.name}}</h1>
 <form class="col s12" [formGroup]="projectForm">
   <div class="row">
     <div class="input-field col s6">
-      <textarea id="name" class="materialize-textarea" formControlName="name"></textarea>
+      <textarea id="name" class="materialize-textarea" formControlName="name" ></textarea>
       <label for="name">Name</label>
     </div>
     <div class="input-field col s6">
-      <textarea id="people" class="materialize-textarea" formControlName="people"></textarea>
-      <label for="people">Founder(s)</label>
+      <textarea id="people" class="materialize-textarea" formControlName="people" ></textarea>
+      <label class="active" for="people">Founder(s)</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6 black-text">
       <select materialize="material_select" [materializeSelectOptions]="categories" formControlName="category">
-          <option value="" disabled selected>Choose your option</option>
           <option *ngFor="let name of categories" [value]="name">{{name}}</option>
       </select>
-      <label>Category</label>
+      <label class="active">Category</label>
     </div>
     <div class="input-field col s6">
       <select materialize="material_select" [materializeSelectOptions]="type" formControlName="type">
-          <option value="" disabled selected>Choose your option</option>
           <option *ngFor="let name of type" [value]="name">{{name}}</option>
       </select>
-      <label>Type</label>
+      <label class="active">Type</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
       <textarea rows="25" id="description" type="text" class="validate materialize-textarea" formControlName="description" data-length="500"></textarea>
-      <label for="description">Description</label>
+      <label class="active" for="description">Description</label>
     </div>
   </div>
   <hr>
   <div class="row">
     <div class="input-field col s12">
       <textarea id="moneyDesc" type="text" class="validate materialize-textarea" formControlName="moneyDesc"></textarea>
-      <label for="moneyDesc">What the Money is for</label>
+      <label class="active" for="moneyDesc">What the Money is for</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
       <input id="goal" type="number" class="validate" formControlName="goal">
-      <label for="goal">Goal Amount</label>
+      <label class="active" for="goal">Goal Amount</label>
     </div>
     <div class="input-field col s6">
       <input id="location" type="text" class="validate" formControlName="location">
-      <label for="location">Invention Location</label>
+      <label class="active" for="location">Invention Location</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
       <input id="rewards" type="text" class="validate" formControlName="rewards">
-      <label for="rewards">Rewards</label>
+      <label class="active" for="rewards">Rewards</label>
     </div>
     <div class="input-field col s6">
       <input id="date" type="text" class="validate" formControlName="date">
-      <label for="date">End Date</label>
+      <label class="active" for="date">End Date</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
       <input id="image" type="url" class="validate" formControlName="image">
-      <label for="image">Image URL</label>
+      <label class="active" for="image">Image URL</label>
     </div>
     <div class="input-field col s6">
       <input id="video" type="url" class="validate" formControlName="video">
-      <label for="video">Video Url</label>
+      <label class="active" for="video">Video Url</label>
     </div>
   </div>
   <div class="row">
     <button class="btn waves-effect waves-light" (click)="updateProject()">Update Project</button>
   </div>
+  <!-- <div class="row">
+    <button class="btn waves-effect waves-light" (click)="setForm(projectToDisplay?.name)">Update Project</button>
+  </div> -->
 </form>
 
 </div>
