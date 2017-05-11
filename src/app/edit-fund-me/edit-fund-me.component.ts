@@ -83,6 +83,8 @@ export class EditFundMeComponent implements OnInit {
   updateProject(){
     var {name, people, description, goal, moneyDesc, rewards, category, type, image, date, location, video} = this.projectForm.value;
     var projectUpdate = new Fundme(name, people, description, goal, moneyDesc, rewards, category, type, image, date, location, video);
+    this.fundmeService.updateProjectInDatabase(projectUpdate, this.projectId);
+
     console.log(projectUpdate);
   }
 
@@ -102,25 +104,10 @@ export class EditFundMeComponent implements OnInit {
     this.projectForm.controls['video'].setValue(video);
   }
 
-
- // ngAfterViewChecked(){
- //
- //   console.log()
- //    this.projectForm = this.fb.group({
- //    name: [this.projectToDisplay.name, Validators.required],
- //    people: [this.projectToDisplay.people, Validators.required],
- //    description: [this.projectToDisplay.description, Validators.required],
- //    goal: [this.projectToDisplay.goal, Validators.required],
- //    moneyDesc: [this.projectToDisplay.moneyDesc, Validators.required],
- //    rewards: [this.projectToDisplay.rewards, Validators.required],
- //    category: [this.projectToDisplay.category, Validators.required],
- //    type: [this.projectToDisplay.type, Validators.required],
- //    image: [this.projectToDisplay.image, Validators.required],
- //    date: [this.projectToDisplay.date, Validators.required],
- //    location: [this.projectToDisplay.location, Validators.required],
- //    video: [this.projectToDisplay.video, Validators.required],
- //  })
- //    console.log(this.projectToDisplay.name);
- //  }
+  deleteProj() {
+    if(confirm("Are you sure you want to delete this project?")){
+      this.fundmeService.deleteProject(this.projectId);
+    }
+  }
 
 }

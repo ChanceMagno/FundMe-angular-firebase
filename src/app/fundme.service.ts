@@ -26,14 +26,26 @@ export class FundmeService {
     return this.database.object('projects/' + projectId);
   }
 
+  deleteProject(id) {
+    var projectEntryInFirebase = this.getProjectById(id);
+    projectEntryInFirebase.remove();
+  }
 
-  // getCurrentFundMe() {
-  //   return currentFundMe;
-  // }
-
-//   updateProject(localUpdatedProject){
-//   var projectEntryInFirebase = this.getProjectById(localUpdatedProject.$key);
-//   projectEntryInFirebase.update({title: localUpdatedProject.title,
-//                               artist: localUpdatedProject.artist,
-//                               description: localUpdatedProject.description});
+  updateProjectInDatabase(localUpdatedProject, id){
+  var projectEntryInFirebase = this.getProjectById(id);
+  projectEntryInFirebase.update({
+                              name: localUpdatedProject.name,
+                              people: localUpdatedProject.people,
+                              description: localUpdatedProject.description,
+                              goal: localUpdatedProject.goal,
+                              moneyDesc: localUpdatedProject.moneyDesc,
+                              rewards: localUpdatedProject.rewards,
+                              category: localUpdatedProject.category,
+                              type: localUpdatedProject.type,
+                              image: localUpdatedProject.image,
+                              date: localUpdatedProject.date,
+                              location: localUpdatedProject.location,
+                              video: localUpdatedProject.video,
+                            });
+                          }
 }
