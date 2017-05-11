@@ -19,6 +19,7 @@ export class EditFundMeComponent implements OnInit {
   projectForm: FormGroup;
   projectId: string;
   projectToDisplay: Fundme;
+  Materialize:any;
 
   constructor (
       private fb: FormBuilder,
@@ -31,7 +32,6 @@ export class EditFundMeComponent implements OnInit {
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
-      console.log(this.projectId);
     });
     this.fundmeService.getProjectById(this.projectId).subscribe(dataLastSeen => {
       this.projectToDisplay = new Fundme(
@@ -109,5 +109,7 @@ export class EditFundMeComponent implements OnInit {
       this.projectForm.reset();
     }
   }
+
+
 
 }

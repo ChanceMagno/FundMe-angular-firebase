@@ -1,7 +1,7 @@
 
 <div class="row">
 <h2>{{projectToDisplay?.name}}</h2>
-<h3 class="grayColor">By {{projectToDisplay.people}}</h3>
+<h3 class="grayColor">By {{projectToDisplay?.people}}</h3>
 </div>
 <div class="row">
   <div class="col m10">
@@ -10,15 +10,15 @@
     </div>
     <p>
       <i class="material-icons">location_on</i>
-      {{projectToDisplay.location}}
+      {{projectToDisplay?.location}}
     </p>
   </div>
   <div class="col m2">
-    <h4>{{projectToDisplay.amountRaised}}</h4>
+    <h4>{{projectToDisplay?.amountRaised}}</h4>
     <p>pledged of {{projectToDisplay?.goal}}</p>
-    <h4>{{projectToDisplay.backers}}</h4>
+    <h4>{{projectToDisplay?.backers}}</h4>
     <p>backers</p>
-    <h4>{{projectToDisplay.date}}</h4>
+    <h4>{{projectToDisplay?.date}}</h4>
     <p>date</p>
     <br>
     <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
@@ -30,26 +30,26 @@
         Description:
       </h3>
       <h5>
-        {{projectToDisplay.description}}
+        {{projectToDisplay?.description}}
       </h5>
     </div>
   </div>
   <div class="row">
     <div class="col m10">
-    <img class="imgSize" src={{projectToDisplay.image}} alt="picture of product">
+    <img class="imgSize" src={{projectToDisplay?.image}} alt="picture of product">
     <br>
     <h4>
       What this money will be used for.
     </h4>
     <h6>
-      {{projectToDisplay.moneyDesc}}
+      {{projectToDisplay?.moneyDesc}}
     </h6>
-    
+
   </div>
   <div class="col m2">
     <div class="card-panel teal">
           <span class="white-text">
-            {{projectToDisplay.rewards}}
+            {{projectToDisplay?.rewards}}
           </span>
         </div>
   </div>

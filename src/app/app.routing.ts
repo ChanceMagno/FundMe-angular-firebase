@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     component: FundmeDetailComponent
   },
   {
-    path:'projects/edit/:id',
+    path:'projects/:id, /edit',
     component: EditFundMeComponent
   }
 ];

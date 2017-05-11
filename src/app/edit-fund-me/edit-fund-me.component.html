@@ -41,8 +41,8 @@
   </div>
   <div class="row">
     <div class="input-field col s6">
-      <input id="goal" type="number" class="validate" formControlName="goal">
-      <label class="active" for="goal">Goal Amount</label>
+      <input  materialize="" id="goal" type="number" class="validate" formControlName="goal">
+      <label  class="active" for="goal">Goal Amount</label>
     </div>
     <div class="input-field col s6">
       <input id="location" type="text" class="validate" formControlName="location">
@@ -55,9 +55,13 @@
       <label class="active" for="rewards">Rewards</label>
     </div>
     <div class="input-field col s6">
-      <input id="date" type="text" class="validate" formControlName="date">
+      <input id="date" type="text" class="datepicker" formControlName="date" materialize="pickadate">
       <label class="active" for="date">End Date</label>
     </div>
+
+
+
+
   </div>
   <div class="row">
     <div class="input-field col s6">
@@ -70,7 +74,7 @@
     </div>
   </div>
   <div class="row">
-    <button class="btn waves-effect waves-light" (click)="updateProject()">Update Project</button>
+    <button class="btn waves-effect waves-light" routerLink="" (click)="updateProject()">Update Project</button>
   </div>
   <div class="row">
     <button class="btn waves-effect waves-light" routerLink="" (click)="deleteProj()">Delete Project</button>

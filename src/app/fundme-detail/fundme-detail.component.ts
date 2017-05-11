@@ -17,6 +17,7 @@ export class FundmeDetailComponent implements OnInit {
   projectToDisplay: Fundme;
   url;
 
+
   constructor(
     private route: ActivatedRoute,
     private location: Location,
@@ -48,6 +49,7 @@ export class FundmeDetailComponent implements OnInit {
 
 }
   editProject(){
-    this.router.navigate(['projects/edit/',this.projectId]);
+    this.router.navigate(['projects/', this.projectId, 'edit']);
+
   }
 }
