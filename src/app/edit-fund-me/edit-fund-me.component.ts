@@ -34,31 +34,33 @@ export class EditFundMeComponent implements OnInit {
       console.log(this.projectId);
     });
     this.fundmeService.getProjectById(this.projectId).subscribe(dataLastSeen => {
-      this.projectToDisplay = new Fundme(dataLastSeen.name,
-                                          dataLastSeen.people,
-                                          dataLastSeen.description,
-                                          dataLastSeen.goal,
-                                          dataLastSeen.moneyDesc,
-                                          dataLastSeen.rewards,
-                                          dataLastSeen.category,
-                                          dataLastSeen.type,
-                                          dataLastSeen.image,
-                                          dataLastSeen.date,
-                                          dataLastSeen.location,
-                                          dataLastSeen.video)
+      this.projectToDisplay = new Fundme(
+        dataLastSeen.name,
+        dataLastSeen.people,
+        dataLastSeen.description,
+        dataLastSeen.goal,
+        dataLastSeen.moneyDesc,
+        dataLastSeen.rewards,
+        dataLastSeen.category,
+        dataLastSeen.type,
+        dataLastSeen.image,
+        dataLastSeen.date,
+        dataLastSeen.location,
+        dataLastSeen.video)
 
-      this.setForm(dataLastSeen.name,
-              dataLastSeen.people,
-              dataLastSeen.description,
-              dataLastSeen.goal,
-              dataLastSeen.moneyDesc,
-              dataLastSeen.rewards,
-              dataLastSeen.category,
-              dataLastSeen.type,
-              dataLastSeen.image,
-              dataLastSeen.date,
-              dataLastSeen.location,
-              dataLastSeen.video)
+      this.setForm(
+        dataLastSeen.name,
+        dataLastSeen.people,
+        dataLastSeen.description,
+        dataLastSeen.goal,
+        dataLastSeen.moneyDesc,
+        dataLastSeen.rewards,
+        dataLastSeen.category,
+        dataLastSeen.type,
+        dataLastSeen.image,
+        dataLastSeen.date,
+        dataLastSeen.location,
+        dataLastSeen.video)
 
 
     })
@@ -76,16 +78,13 @@ export class EditFundMeComponent implements OnInit {
       location: [ Validators.required],
       video: [ Validators.required],
     })
-    // console.log(this.projectId);
-    // console.log(this.projectToDisplay);
   }
 
   updateProject(){
     var {name, people, description, goal, moneyDesc, rewards, category, type, image, date, location, video} = this.projectForm.value;
     var projectUpdate = new Fundme(name, people, description, goal, moneyDesc, rewards, category, type, image, date, location, video);
     this.fundmeService.updateProjectInDatabase(projectUpdate, this.projectId);
-
-    console.log(projectUpdate);
+    this.projectForm.reset();
   }
 
   setForm(name: string, people: string, description: string, goal: number, moneyDesc: string, rewards: string, category: string, type: string, image: string, date: string, location: string, video: string){
@@ -107,6 +106,7 @@ export class EditFundMeComponent implements OnInit {
   deleteProj() {
     if(confirm("Are you sure you want to delete this project?")){
       this.fundmeService.deleteProject(this.projectId);
+      this.projectForm.reset();
     }
   }
 

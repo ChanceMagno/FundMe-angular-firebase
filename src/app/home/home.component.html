@@ -4,11 +4,23 @@
       <div class="card">
         <div class="card-image">
           <img src={{project.image}}>
-          <span class="card-title">Card Title</span>
+          <span class="card-title">{{project.name}}</span>
           <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons" (click)="goToProjectDetailPage(project)">info</i></a>
         </div>
         <div class="card-content">
-          <p>{{project.description}}</p>
+          <div class="container">
+            <div class="row">
+              <div class="col s4 m4">
+                <p>{{project.description}}</p>
+              </div>
+              <div class="col s4 m4">
+                <h4>$ {{project.goal}}</h4>
+              </div>
+              <div class="col s4 m4">
+                <h5>{{project.location}}</h5>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
