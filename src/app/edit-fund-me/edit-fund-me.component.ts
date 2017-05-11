@@ -17,7 +17,7 @@ export class EditFundMeComponent implements OnInit {
 
 projectForm: FormGroup;
 projectId: string;
-projectToDisplay;
+projectToDisplay: Fundme;
 
   constructor (private fb: FormBuilder,
     private fundmeService: FundmeService,
@@ -28,8 +28,24 @@ projectToDisplay;
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
+      console.log(this.projectId);
     });
-    this.projectToDisplay = this.fundmeService.getProjectEditById(this.projectId);
+    this.fundmeService.getProjectById(this.projectId).subscribe(dataLastSeen => {
+      this.projectToDisplay = new Fundme(dataLastSeen.name,
+                                          dataLastSeen.people,
+                                          dataLastSeen.description,
+                                          dataLastSeen.goal,
+                                          dataLastSeen.moneyDesc,
+                                          dataLastSeen.rewards,
+                                          dataLastSeen.category,
+                                          dataLastSeen.type,
+                                          dataLastSeen.image,
+                                          dataLastSeen.date,
+                                          dataLastSeen.location,
+                                          dataLastSeen.video)
+                                          console.log(this.projectToDisplay);
+
+    })
 
     this.projectForm = this.fb.group({
       name: ['', Validators.required],
@@ -45,8 +61,8 @@ projectToDisplay;
       location: ['', Validators.required],
       video: ['', Validators.required],
     })
-    console.log(this.projectId);
-    console.log(this.projectToDisplay);
+    // console.log(this.projectId);
+    // console.log(this.projectToDisplay);
   }
 
   updateProject(){
